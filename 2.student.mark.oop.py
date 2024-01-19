@@ -32,6 +32,7 @@ class School:
 
     def input_students(self, num_students):
         for _ in range(num_students):
+            print("================================================")
             id = input("Enter student id: ")
             name = input("Enter student name: ")
             dob = input("Enter student DoB: ")
@@ -39,11 +40,13 @@ class School:
 
     def input_courses(self, num_courses):
         for _ in range(num_courses):
+            print("================================================")
             id = input("Enter course id: ")
             name = input("Enter course name: ")
             self.courses.append(Course(id, name))
 
     def input_marks(self):
+        print("================================================")
         course_id = input("Enter course id to input marks: ")
         course = next((course for course in self.courses if course.id == course_id), None)
         if course is None:
@@ -55,16 +58,25 @@ class School:
             self.marks.append(Mark(student, course, mark))
 
     def list_students(self):
-        for student in self.students:
-            print(student)
+                if len(self.students) == 0:
+                    print("No students to list. Input student info first.")
+                    return
+                for student in self.students:
+                    print(student)
 
     def list_courses(self):
-        for course in self.courses:
-            print(course)
+                if len(self.courses) == 0:
+                    print("No courses to list. Input course info first.")
+                    return
+                for course in self.courses:
+                    print(course)
 
     def list_marks(self):
-        for mark in self.marks:
-            print(mark)
+                if len(self.marks) == 0:
+                    print("No marks to list. Input marks for course first.")
+                    return
+                for mark in self.marks:
+                    print(mark)
 
 def main():
     school = School()
@@ -72,6 +84,7 @@ def main():
     num_courses = 0
 
     while True:
+        print("================================================")
         print("1. Input number of students")
         print("2. Input student info")
         print("3. Input number of courses")
